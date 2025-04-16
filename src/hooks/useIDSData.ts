@@ -5,7 +5,7 @@ import { useDataContext } from "../context/DataContext";
 export const useIDSData = () => {
   const dataContext = useDataContext();
 
-  const SERVER_URL = "http://localhost:5001";
+  const SERVER_URL = "http://localhost:5000";
 
   const fetchStatus = async () => {
     try {
@@ -20,27 +20,23 @@ export const useIDSData = () => {
     }
   };
 
-  const startSending = async () => {
-    try {
-      const res = await fetch(`${SERVER_URL}/start`, { method: "POST" });
-      if (res.ok) fetchStatus();
-    } catch (error) {
-      console.error("Error starting sender:", error);
-    }
-  };
+  // const startSending = async () => {
+  //   try {
+  //     const res = await fetch(`${SERVER_URL}/start`, { method: "POST" });
+  //     if (res.ok) fetchStatus();
+  //   } catch (error) {
+  //     console.error("Error starting sender:", error);
+  //   }
+  // };
 
-  const stopSending = async () => {
-    try {
-      const res = await fetch(`${SERVER_URL}/stop`, { method: "POST" });
-      if (res.ok) fetchStatus();
-    } catch (error) {
-      console.error("Error stopping sender:", error);
-    }
-  };
-
-  useEffect(() => {
-    startSending();
-  }, []);
+  // const stopSending = async () => {
+  //   try {
+  //     const res = await fetch(`${SERVER_URL}/stop`, { method: "POST" });
+  //     if (res.ok) fetchStatus();
+  //   } catch (error) {
+  //     console.error("Error stopping sender:", error);
+  //   }
+  // };
 
   useEffect(() => {
     fetchStatus();

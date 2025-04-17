@@ -13,8 +13,6 @@ const Dashboard: React.FC = () => {
   // Calculate statistics
   const stats = getStatistics();
 
-  console.log(stats);
-
   // Generate chart data for attack trends
   const attackTrends = useMemo(() => {
     if (loading || data.length === 0) return null;

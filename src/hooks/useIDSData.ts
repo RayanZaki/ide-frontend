@@ -11,7 +11,6 @@ export const useIDSData = () => {
     try {
       const res = await fetch(`${SERVER_URL}/status`);
       const data = await res.json();
-      console.log(data.stats);
 
       dataContext.setIsRunning(data.running);
       dataContext.setStats(data.stats || {});
